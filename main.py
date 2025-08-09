@@ -235,7 +235,7 @@ if show_table:
 if show_heatmap:
     st.markdown("**Heatmap**")
     # Prepare data for Altair
-    df_melt = grid_display.reset_index().melt(id_vars="Time", var_name="Day", value_name="Staff")
+    df_melt = grid_display.reset_index(names='Time').melt(id_vars="Time", var_name="Day", value_name="Staff")
     chart = alt.Chart(df_melt).mark_rect().encode(
         x=alt.X("Day:N", sort=DAYS),
         y=alt.Y("Time:N", sort=list(grid_display.index)),
