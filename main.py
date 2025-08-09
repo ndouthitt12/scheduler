@@ -119,12 +119,12 @@ with btn_cols[2]:
 
 if clear_form:
     st.session_state.edit_id = None
-    st.experimental_rerun()
+    st.rerun()
 
 if reset_all:
     st.session_state.people = []
     st.session_state.edit_id = None
-    st.experimental_rerun()
+    st.rerun()
 
 # Handle add/update
 if add_update:
@@ -150,7 +150,7 @@ if add_update:
                     st.session_state.people[i] = payload
                     break
             st.session_state.edit_id = None
-        st.experimental_rerun()
+        st.rerun()
 
 st.subheader("Current People")
 if len(st.session_state.people) == 0:
@@ -199,7 +199,7 @@ else:
             if target_del != "(select)":
                 st.session_state.people = [p for p in st.session_state.people if p["id"] != target_del]
                 st.success("Removed.")
-                st.experimental_rerun()
+                st.rerun()
 
 st.markdown("---")
 
